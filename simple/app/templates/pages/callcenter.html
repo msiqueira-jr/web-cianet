@@ -1,0 +1,59 @@
+
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+			Qualidade da Banda Larga:
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<canvas id='downloadCanvas'>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			Qualidade do Wifi:
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<canvas id='uploadCanvas'>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function createGauge(id, value){
+		var gauge = new Gauge(document.getElementById(id)).setOptions({
+			angle : 0.09, // The span of the gauge arc
+			lineWidth : 0.2, // The line thickness
+			radiusScale : 1, // Relative radius
+			pointer : {
+				length : 0.6, // // Relative to gauge radius
+				strokeWidth : 0.044, // The thickness
+				color : '#000000' // Fill color
+			},
+			limitMax : false, // If false, max value increases automatically if value > maxValue
+			limitMin : false, // If true, the min value of the gauge will be fixed
+			//colorStart : '#6FADCF', // Colors
+			//colorStop : '#8FC0DA', // just experiment with them
+			strokeColor : '#E0E0E0', // to see which ones work best for you
+			generateGradient : true,
+			highDpiSupport : true, // High resolution support
+			percentColors : [ [ 0.0, "#ff0000" ], [ 0.50, "#f9c802" ], [ 1.0, "#a9d70b" ] ],
+			staticZones : [
+			   {strokeStyle: "#F03E3E", min: 0, max: 33},  // Red
+			   {strokeStyle: "#FFDD00", min: 33, max: 66}, // Yellow
+			   {strokeStyle: "#30B32D", min: 66, max: 100}, // Green
+			],
+			staticLabels : {
+				font : "10px sans-serif", // Specifies font
+				labels : [ 0, 50, 100 ], // Print labels at these values
+				color : "#000000", // Optional: Label text color
+				fractionDigits : 0
+			},
+		});
+		gauge.maxValue = 100;
+		gauge.setMinValue(0);
+		gauge.animationSpeed = 35;
+		gauge.set(value);
+	}
+	createGauge('downloadCanvas', 90);
+	createGauge('uploadCanvas', 15);
+</script>

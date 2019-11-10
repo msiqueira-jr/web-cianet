@@ -1,0 +1,92 @@
+
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/assets/img/sidebar-1.jpg">
+      <!-- Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+           Tip 2: you can also add an image using data-image tag -->
+      <div class="logo">
+        <a href="/index.html" class="simple-text logo-normal">
+          <img class="img" src="/static/assets/img/beegol_logo.png" />
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item">
+              <a class="nav-link" href="/callcenter.html">
+                <i class="material-icons">perm_identity</i>
+                <p>Call Center</p>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/noc.html">
+                <i class="material-icons">build</i>
+                <p>NOC</p>
+              </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/icons.html">
+              <i class="material-icons">bubble_chart</i>
+              <p>Operadoras</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="material-icons">dashboard</i>
+              <p>Indicadores</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/user.html">
+              <i class="material-icons">person</i>
+              <p>Usuários</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/tables.html">
+              <i class="material-icons">content_paste</i>
+              <p>Chamados</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/typography.html">
+              <i class="material-icons">library_books</i>
+              <p>Typography</p>
+            </a>
+          </li>
+          
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/notifications.html">
+              <i class="material-icons">notifications</i>
+              <p>Notificações</p>
+            </a>
+          </li>
+
+          {% if current_user.is_authenticated %}
+
+          <li class="nav-item ">
+            <a class="nav-link" href={{ url_for('logout') }}>
+              <i class="material-icons">account_box</i>
+              <p>Sair</p>
+            </a>
+          </li>
+
+          {% else %}
+
+          <li class="nav-item ">
+            <a class="nav-link" href={{ url_for('login') }}>
+              <i class="material-icons">account_box</i>
+              <p>Entrar</p>
+            </a>
+          </li>
+
+          {% endif %}
+
+          <li class="nav-item active-pro ">
+            <a class="nav-link" href="https://appseed.us">
+              <i class="material-icons">rocket</i>
+              <p>APPSEED</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
